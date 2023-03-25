@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hoteliers', function (Blueprint $table) {
+        Schema::create('user_types', function (Blueprint $table) {
             $table->id();
-            $table->ulid('hoteliers_ulid');
-            $table->string('name', 100);
-            $table->string('email', 100);
-            $table->string('contact_number', 25);
-            $table->text('address');
-            $table->enum('status', ['active', 'disabled']);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hoteliers');
+        Schema::dropIfExists('user_types');
     }
 };

@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
-            $table->ulid('hotel_ulid');
+            $table->foreignId('user_id')->constrained();
+            $table->uuid('uuid');
+            $table->string('name');
+            $table->unsignedMediumInteger('total_rooms');
+            $table->unsignedMediumInteger('available_rooms');
+            $table->foreignId('country_id')->constrained();
+            $table->foreignId('state_id')->constrained();
+            $table->foreignId('city_id')->constrained();
+            $table->text('location');
+            $table->enum('status', ['active', 'disabled']);
             $table->timestamps();
         });
     }
