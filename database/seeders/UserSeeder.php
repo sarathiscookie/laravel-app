@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password', [
                     'rounds' => 12,
                 ]),
-                'contact_number' => '0000000000',
+                'contact_number' => '1111111111',
                 'country_id' => 1,
                 'state_id' => 1,
                 'city_id' => 1,
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password', [
                     'rounds' => 12,
                 ]),
-                'contact_number' => '0000000000',
+                'contact_number' => '2222222222',
                 'country_id' => 1,
                 'state_id' => 1,
                 'city_id' => 1,
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password', [
                     'rounds' => 12,
                 ]),
-                'contact_number' => '0000000000',
+                'contact_number' => '3333333333',
                 'country_id' => 1,
                 'state_id' => 1,
                 'city_id' => 1,
