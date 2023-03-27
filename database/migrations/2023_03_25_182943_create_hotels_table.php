@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->uuid('uuid');
+            $table->uuid('uuid')->unique();
             $table->string('name');
             $table->unsignedMediumInteger('total_rooms');
             $table->unsignedMediumInteger('available_rooms');

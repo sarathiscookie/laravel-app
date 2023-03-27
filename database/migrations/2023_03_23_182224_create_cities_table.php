@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 150);
             $table->foreignId('country_id')->constrained();
             $table->foreignId('state_id')->constrained();
+            $table->enum('active', ['active', 'disabled'])->default('active');
             $table->timestamps();
         });
     }
