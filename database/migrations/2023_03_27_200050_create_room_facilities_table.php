@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 200);
             $table->foreignId('hotel_id')->constrained();
-            $table->enum('status', ['active', 'disabled']);
+            $table->enum('status', ['active', 'disabled'])->default('active');
             $table->timestamps();
         });
     }
