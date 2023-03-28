@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->enum('status', ['active', 'disabled']);
+            $table->enum('status', ['active', 'disabled'])->default('disabled');
             $table->timestamps();
         });
     }
