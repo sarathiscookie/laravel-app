@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route for register and login.
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+// Route for login
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-// Route groups 
+// Route groups
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::resource('/users', UserController::class);
