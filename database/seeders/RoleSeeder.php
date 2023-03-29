@@ -28,11 +28,11 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name' => 'Hotel Accountant',
-                'status' => 'disabled',
+                'status' => 'active',
             ],
             [
                 'name' => 'Hotel Receptionist',
-                'status' => 'disabled',
+                'status' => 'active',
             ],
         ];
 

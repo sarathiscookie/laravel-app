@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
-            HotelSeeder::class,
             CategorySeeder::class
         ]);
     }

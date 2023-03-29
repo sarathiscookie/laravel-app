@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('state_id')->constrained();
             $table->foreignId('city_id')->constrained();
             $table->text('address');
-            $table->enum('status', ['active', 'disabled'])->default('disabled');
+            $table->enum('status', ['active', 'disabled'])->default('active');
             $table->rememberToken();
             $table->timestamps();
         });
