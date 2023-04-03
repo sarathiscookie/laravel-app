@@ -16,19 +16,9 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('name')
-            ->get(['id', 'name', 'email']);
+            ->get(['id', 'uuid', 'role_id', 'name', 'email']);
 
         return response()->json($users);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -82,17 +72,6 @@ class UserController extends Controller
     public function show(User $user)
     {
         return response()->json($user);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
