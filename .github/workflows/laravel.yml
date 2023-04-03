@@ -46,4 +46,4 @@ jobs:
         DB_DATABASE: laravel_app
         DB_USERNAME: sail
         DB_PASSWORD: password
-      run: vendor/bin/phpunit
+      run: sail artisan test
