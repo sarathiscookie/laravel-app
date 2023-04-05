@@ -40,7 +40,7 @@ jobs:
         DB_CONNECTION: mysql
         DB_HOST: mysql
         DB_PORT: 3306
-        DB_DATABASE: laravel_app
+        DB_DATABASE: testing
         DB_USERNAME: sail
         DB_PASSWORD: password
-      run: vendor/bin/phpunit tests/
+      run: vendor/bin/phpunit
