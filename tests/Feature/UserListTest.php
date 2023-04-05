@@ -4,12 +4,10 @@ namespace Tests\Feature;
 
 use App\Models\City;
 use App\Models\Country;
-use App\Models\Role;
 use App\Models\State;
 use App\Models\User;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
