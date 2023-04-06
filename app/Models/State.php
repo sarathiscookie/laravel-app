@@ -14,5 +14,5 @@ class State extends Model
      *
      * @var array
      */
-    protected $guarded = ['id', 'country_id'];
+    protected $guarded = ['id'];
 }

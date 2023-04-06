@@ -13,21 +13,10 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        $countries = [
-            [
-                'name' => 'India',
-                'code' => 'IN',
-                'active' => 'active'
-            ],
-            [
-                'name' => 'United States',
-                'code' => 'US',
-                'active' => 'active'
-            ]
-        ];
-
-        foreach ($countries as $country) {
-            Country::insert($country);
-        }
+        Country::insert([
+            'name' => 'India',
+            'code' => 'IN',
+            'active' => 'active'
+        ]);
     }
 }

@@ -14,5 +14,5 @@ class City extends Model
      *
      * @var array
      */
-    protected $guarded = ['id', 'country_id', 'state_id'];
+    protected $guarded = ['id'];
 }
