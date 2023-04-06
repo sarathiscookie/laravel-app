@@ -25,7 +25,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
     Route::apiResources([
         '/users' => UserController::class,
-        '/hotels' => HotelController::class
+        //'/hotels' => HotelController::class
     ]);
 
 //     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

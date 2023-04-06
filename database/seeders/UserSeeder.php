@@ -42,6 +42,20 @@ class UserSeeder extends Seeder
                 'city_id' => 1,
                 'address' => 'Kochi',
                 'status' => 'active',
+            ],
+            [
+                'role_id' => 3,
+                'name' => 'Taj Manager',
+                'email' => 'tajhotelmanager@test.com',
+                'password' => Hash::make('password', [
+                    'rounds' => 12,
+                ]),
+                'contact_number' => '3333333333',
+                'country_id' => 1,
+                'state_id' => 1,
+                'city_id' => 1,
+                'address' => 'Kochi',
+                'status' => 'active',
             ]
         ];
 
