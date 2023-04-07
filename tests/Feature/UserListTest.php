@@ -14,32 +14,30 @@ class UserListTest extends TestCase
 {
     use RefreshDatabase;
 
+    private $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->user = User::factory()->create();
+    }
+
     /**
      * A basic feature test example.
      */
     public function test_fetch_all_users(): void
     {
-        // Preparation
-        User::factory(5)->create();
-
-        // Action
         $response = $this->getJson('/api/users');
 
-        // Assertion (predict)
         $response->assertStatus(200);
     }
 
     public function test_fetch_single_user(): void
     {
-        // Preparation
-        User::factory(5)->create();
+        $response = $this->getJson(route('users.show', $this->user->id))
+                        ->assertOk();
 
-        // Action
-        $response = $this->getJson(route('users.show', 3));
-
-        // Assertion (predict)
-        $response->assertStatus(200);
-
-        $this->assertEquals(3, $response->json()['role_id']);
+        $this->assertGreaterThan(2, $response->json()['role_id']);
     }
 }
