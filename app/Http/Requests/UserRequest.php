@@ -21,17 +21,27 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'role_id' => 'numeric',
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'contact_number' => 'required|string|max:25',
-            'country_id' => 'numeric',
-            'state_id' => 'numeric',
-            'city_id' => 'numeric',
-            'address' => 'required|string|max:255'
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'role_id' => 'numeric',
+                    'name' => 'required|string|max:255',
+                    'email' => 'required|string|email|max:255|unique:users',
+                    'password' => 'required|string|min:8|confirmed',
+                    'contact_number' => 'required|string|max:25',
+                    'country_id' => 'numeric',
+                    'state_id' => 'numeric',
+                    'city_id' => 'numeric',
+                    'address' => 'required|string|max:255'
+                ];
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'contact_number' => 'required|string|max:25',
+                    'address' => 'required|string|max:255'
+                ];
+            default:break;
+        }
     }
 
     /**

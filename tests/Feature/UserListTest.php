@@ -26,7 +26,7 @@ class UserListTest extends TestCase
 
     public function test_fetch_all_users(): void
     {
-        $response = $this->getJson('/api/users');
+        $response = $this->getJson(route('users.index'));
 
         $response->assertStatus(200);
     }
@@ -43,7 +43,7 @@ class UserListTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $response = $this->postJson('/api/users', [
+        $response = $this->postJson(route('users.store', [
             'role_id' => $user->role_id,
             'name' => $user->name,
             'email' => $user->email,
@@ -54,9 +54,37 @@ class UserListTest extends TestCase
             'state_id' => $user->state_id,
             'city_id' => $user->city_id,
             'address' => $user->address
-        ])
+        ]))
         ->assertCreated();
 
         $this->assertEquals($user->name, $response->json()['user']['name']);
+
+        $this->assertDatabaseHas('users', [
+            'name' => $user->name
+        ]);
+    }
+
+    public function test_delete_user(): void
+    {
+        $this->deleteJson(route('users.destroy', $this->user->id))
+            ->assertNoContent();
+
+        $this->assertDatabaseMissing('users', [
+            'name' => $this->user->id
+        ]);
+    }
+
+    public function test_update_user(): void
+    {
+        $this->patchJson(route('users.update', $this->user->id), [
+            'contact_number' => '9999903203',
+            'address' => 'Island'
+        ])
+            ->assertOk();
+
+        $this->assertDatabaseHas('users', [
+            'id' => $this->user->id,
+            'contact_number' => '9999903203'
+        ]);
     }
 }

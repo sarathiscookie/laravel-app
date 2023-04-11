@@ -65,18 +65,18 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UserRequest  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->fill($request->post())->save();
 
         return response()->json([
             'message' => 'User updated successfully!',
             'user' => $user
-        ]);
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -91,6 +91,6 @@ class UserController extends Controller
 
         return response()->json([
             'message' => 'User deleted successfully!'
-        ]);
+        ], Response::HTTP_NO_CONTENT);
     }
 }
