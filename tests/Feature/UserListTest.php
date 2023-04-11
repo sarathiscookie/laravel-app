@@ -70,7 +70,7 @@ class UserListTest extends TestCase
             ->assertNoContent();
 
         $this->assertDatabaseMissing('users', [
-            'name' => $this->user->id
+            'id' => $this->user->id
         ]);
     }
 
