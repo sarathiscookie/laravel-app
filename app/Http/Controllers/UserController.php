@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
         $users = User::role()
                     ->get(['id', 'uuid', 'role_id', 'name', 'email', 'contact_number', 'country_id', 'state_id', 'city_id', 'status']);
 
-        return response()->json($users);
+        return response()->json($users, Response::HTTP_OK);
     }
 
     /**
@@ -47,7 +48,7 @@ class UserController extends Controller
         return response()->json([
             'message' => 'User created successfully!',
             'user' => $user
-        ]);
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -58,24 +59,24 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return response()->json($user);
+        return response()->json($user, Response::HTTP_OK);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UserRequest  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $user->fill($request->post())->save();
 
         return response()->json([
             'message' => 'User updated successfully!',
             'user' => $user
-        ]);
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -90,6 +91,6 @@ class UserController extends Controller
 
         return response()->json([
             'message' => 'User deleted successfully!'
-        ]);
+        ], Response::HTTP_NO_CONTENT);
     }
 }
