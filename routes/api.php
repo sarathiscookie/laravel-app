@@ -21,12 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Route groups
-// Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResources([
         '/users' => UserController::class,
         //'/hotels' => HotelController::class
     ]);
 
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-// });
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});

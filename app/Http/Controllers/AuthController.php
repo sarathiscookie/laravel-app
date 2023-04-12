@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -20,12 +21,12 @@ class AuthController extends Controller
             'password' => ['required', 'string']
         ]);
 
-        $user = User::where('email', $fields['email'])->first();
+        $user = User::firstWhere('email', $fields['email']);
 
         if (!$user || !Hash::check($fields['password'], $user->password)) {
             return response()->json([
-                'message' => 'Wrong Credentials!'
-            ], 401);
+                'message' => 'Credentials not match.'
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
         $token = $user->createToken('apiapptoken');
