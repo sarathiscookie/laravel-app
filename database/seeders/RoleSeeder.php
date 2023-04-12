@@ -16,23 +16,23 @@ class RoleSeeder extends Seeder
         $roles = [
             [
                 'name' => 'Admin',
-                'status' => 'active',
+                'status' => Role::ACTIVE,
             ],
             [
                 'name' => 'Hotel Owner',
-                'status' => 'active',
+                'status' => Role::ACTIVE,
             ],
             [
                 'name' => 'Hotel Manager',
-                'status' => 'active',
+                'status' => Role::ACTIVE,
             ],
             [
                 'name' => 'Hotel Accountant',
-                'status' => 'active',
+                'status' => Role::ACTIVE,
             ],
             [
                 'name' => 'Hotel Receptionist',
-                'status' => 'active',
+                'status' => Role::ACTIVE,
             ],
         ];
 

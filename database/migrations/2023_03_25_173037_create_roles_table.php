@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->enum('status', ['active', 'disabled'])->default('disabled');
+            $table->enum('status', [Role::ACTIVE, Role::DISABLED])->default(Role::DISABLED);
             $table->timestamps();
         });
     }

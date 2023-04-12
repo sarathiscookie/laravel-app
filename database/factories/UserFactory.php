@@ -28,8 +28,7 @@ class UserFactory extends Factory
             'country_id' => 1,
             'state_id' => 1,
             'city_id' => 1,
-            'address' => fake()->address(),
-            'status' => 'active'
+            'address' => fake()->address()
         ];
     }
 

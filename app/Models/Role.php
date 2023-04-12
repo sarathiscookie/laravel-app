@@ -9,6 +9,10 @@ class Role extends Model
 {
     use HasFactory;
 
+    public const ACTIVE = 'active';
+
+    public const DISABLED = 'disabled';
+
     /**
      * The attributes that are mass assignable.
      *

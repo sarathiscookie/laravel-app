@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->foreignId('state_id')->constrained();
             $table->foreignId('city_id')->constrained();
             $table->text('address');
-            $table->enum('status', ['active', 'disabled'])->default('active');
+            $table->enum('status', [User::ACTIVE, User::DISABLED])->default(User::ACTIVE);
             $table->rememberToken();
             $table->timestamps();
         });

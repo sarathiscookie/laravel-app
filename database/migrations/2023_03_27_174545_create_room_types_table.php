@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\RoomType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +15,7 @@ return new class extends Migration
         Schema::create('room_types', function (Blueprint $table) {
             $table->id();
             $table->string('name', 25);
-            $table->enum('status', ['active', 'disabled'])->default('active');
+            $table->enum('status', [RoomType::ACTIVE, RoomType::DISABLED])->default(RoomType::ACTIVE);
             $table->timestamps();
         });
     }

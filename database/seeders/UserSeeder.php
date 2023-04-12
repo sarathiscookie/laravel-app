@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => User::ACTIVE,
             ],
             [
                 'role_id' => 2,
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => User::ACTIVE,
             ],
             [
                 'role_id' => 3,
@@ -55,7 +55,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => User::ACTIVE,
             ]
         ];
 

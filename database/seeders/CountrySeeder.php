@@ -15,8 +15,7 @@ class CountrySeeder extends Seeder
     {
         Country::insert([
             'name' => 'India',
-            'code' => 'IN',
-            'active' => 'active'
+            'code' => 'IN'
         ]);
     }
 }

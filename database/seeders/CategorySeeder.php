@@ -16,31 +16,31 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Room Facilities',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'General Facilities',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'Outdoors Facilities',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'Wellness',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'Cleaning Services',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'Nearby',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
             [
                 'name' => 'Safety & Security',
-                'status' => 'active'
+                'status' => Category::ACTIVE
             ],
         ];
 
