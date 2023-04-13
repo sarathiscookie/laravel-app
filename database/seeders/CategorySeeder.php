@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enum\StatusEnum;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,31 +17,31 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'name' => 'Room Facilities',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'General Facilities',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'Outdoors Facilities',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'Wellness',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'Cleaning Services',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'Nearby',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
             [
                 'name' => 'Safety & Security',
-                'status' => Category::ACTIVE
+                'status' => StatusEnum::ACTIVE->value
             ],
         ];
 

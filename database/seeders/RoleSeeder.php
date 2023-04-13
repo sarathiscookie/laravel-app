@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enum\StatusEnum;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,23 +17,23 @@ class RoleSeeder extends Seeder
         $roles = [
             [
                 'name' => 'Admin',
-                'status' => Role::ACTIVE,
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'name' => 'Hotel Owner',
-                'status' => Role::ACTIVE,
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'name' => 'Hotel Manager',
-                'status' => Role::ACTIVE,
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'name' => 'Hotel Accountant',
-                'status' => Role::ACTIVE,
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'name' => 'Hotel Receptionist',
-                'status' => Role::ACTIVE,
+                'status' => StatusEnum::ACTIVE->value,
             ],
         ];
 

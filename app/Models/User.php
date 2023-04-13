@@ -15,10 +15,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public const ACTIVE = 'active';
-
-    public const DISABLED = 'disabled';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -42,7 +38,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime'
     ];
 
     /**
@@ -51,6 +47,7 @@ class User extends Authenticatable
     public static function boot()
     {
         parent::boot();
+
         self::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });

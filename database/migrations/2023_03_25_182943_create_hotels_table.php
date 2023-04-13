@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Hotel;
+use App\Enum\StatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('state_id')->constrained();
             $table->foreignId('city_id')->constrained();
             $table->text('location');
-            $table->enum('status', [Hotel::ACTIVE, Hotel::DISABLED])->default(Hotel::ACTIVE);
+            $table->enum('status', [StatusEnum::ACTIVE->value, StatusEnum::DISABLED->value])->default(StatusEnum::ACTIVE->value);
             $table->timestamps();
         });
     }

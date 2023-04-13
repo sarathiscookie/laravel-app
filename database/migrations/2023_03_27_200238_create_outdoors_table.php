@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Outdoor;
+use App\Enum\StatusEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 200);
             $table->foreignId('hotel_id')->constrained();
-            $table->enum('status', [Outdoor::ACTIVE, Outdoor::DISABLED])->default(Outdoor::ACTIVE);
+            $table->enum('status', [StatusEnum::ACTIVE->value, StatusEnum::DISABLED->value])->default(StatusEnum::ACTIVE->value);
             $table->timestamps();
         });
     }
