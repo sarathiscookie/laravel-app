@@ -21,7 +21,9 @@ class UserListTest extends TestCase
     {
         parent::setUp();
 
-        $this->user = User::factory()->create();
+        $this->user = $this->createUser();
+        
+        $this->authUser();
     }
 
     public function test_fetch_all_users(): void
@@ -77,14 +79,14 @@ class UserListTest extends TestCase
     public function test_update_user(): void
     {
         $this->patchJson(route('users.update', $this->user->id), [
-            'contact_number' => '9999903203',
+            'contact_number' => '0000000000',
             'address' => 'Island'
         ])
             ->assertOk();
 
         $this->assertDatabaseHas('users', [
             'id' => $this->user->id,
-            'contact_number' => '9999903203'
+            'contact_number' => '0000000000'
         ]);
     }
 }

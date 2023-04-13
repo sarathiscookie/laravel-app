@@ -38,7 +38,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime'
     ];
 
     /**
@@ -47,6 +47,7 @@ class User extends Authenticatable
     public static function boot()
     {
         parent::boot();
+
         self::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });

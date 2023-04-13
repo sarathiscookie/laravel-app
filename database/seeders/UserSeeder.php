@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Enum\StatusEnum;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'role_id' => 2,
@@ -41,7 +42,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => StatusEnum::ACTIVE->value,
             ],
             [
                 'role_id' => 3,
@@ -55,12 +56,12 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
-                'status' => 'active',
+                'status' => StatusEnum::ACTIVE->value,
             ]
         ];
 
         foreach ($users as $user) {
-            $user_info = new User;
+            $user_info = new User();
  
             $user_info->role_id = $user['role_id'];
             $user_info->name = $user['name'];
