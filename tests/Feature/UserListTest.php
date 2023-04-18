@@ -55,7 +55,8 @@ class UserListTest extends TestCase
             'country_id' => $user->country_id,
             'state_id' => $user->state_id,
             'city_id' => $user->city_id,
-            'address' => $user->address
+            'address' => $user->address,
+            'postcode' => $user->postcode
         ]))
         ->assertCreated();
 

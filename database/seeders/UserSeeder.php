@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
+                'postcode' => '111111',
                 'status' => StatusEnum::ACTIVE->value,
             ],
             [
@@ -42,6 +43,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
+                'postcode' => '111222',
                 'status' => StatusEnum::ACTIVE->value,
             ],
             [
@@ -56,6 +58,7 @@ class UserSeeder extends Seeder
                 'state_id' => 1,
                 'city_id' => 1,
                 'address' => 'Kochi',
+                'postcode' => '222222',
                 'status' => StatusEnum::ACTIVE->value,
             ]
         ];
@@ -72,6 +75,7 @@ class UserSeeder extends Seeder
             $user_info->state_id = $user['state_id'];
             $user_info->city_id = $user['city_id'];
             $user_info->address = $user['address'];
+            $user_info->postcode = $user['postcode'];
             $user_info->status = $user['status'];
  
             $user_info->save();
