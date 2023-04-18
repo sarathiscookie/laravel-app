@@ -43,6 +43,7 @@ class UserController extends Controller
         $user->state_id = $request->state_id;
         $user->city_id = $request->city_id;
         $user->address = $request->address;
+        $user->postcode = $request->postcode;
         $user->save();
 
         return response()->json([

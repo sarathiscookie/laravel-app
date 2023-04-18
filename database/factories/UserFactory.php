@@ -28,7 +28,8 @@ class UserFactory extends Factory
             'country_id' => 1,
             'state_id' => 1,
             'city_id' => 1,
-            'address' => fake()->address()
+            'address' => fake()->address(),
+            'postcode' => fake()->postcode()
         ];
     }
 

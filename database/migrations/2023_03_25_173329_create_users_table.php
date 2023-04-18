@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('role_id')->constrained();
             $table->uuid('uuid')->unique();
-            $table->string('name');
+            $table->string('name', 150);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('state_id')->constrained();
             $table->foreignId('city_id')->constrained();
             $table->text('address');
+            $table->string('postcode', 15);
             $table->enum('status', [StatusEnum::ACTIVE->value, StatusEnum::DISABLED->value])->default(StatusEnum::ACTIVE->value);
             $table->rememberToken();
             $table->timestamps();
