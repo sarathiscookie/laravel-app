@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResources([
         '/users' => UserController::class,
-        //'/hotels' => HotelController::class
+        '/hotels' => HotelController::class
     ]);
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

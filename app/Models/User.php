@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Scope a query to only include popular users.
+     * Scope a query to exclude admin and hotel owner.
      */
     public function scopeRole(Builder $query): void
     {

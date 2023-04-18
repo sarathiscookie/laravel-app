@@ -10,10 +10,6 @@ class Hotel extends Model
 {
     use HasFactory;
 
-    public const ACTIVE = 'active';
-
-    public const DISABLED = 'disabled';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +23,7 @@ class Hotel extends Model
     public static function boot()
     {
         parent::boot();
+        
         self::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });
