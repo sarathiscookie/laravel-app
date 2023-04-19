@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 class Hotel extends Model
@@ -27,5 +29,21 @@ class Hotel extends Model
         self::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });
+    }
+
+    /**
+     * Get the user that owns the hotel.
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the hotel contacts for the hotel.
+     */
+    public function hotelContacts(): HasMany
+    {
+        return $this->hasMany(HotelContact::class);
     }
 }

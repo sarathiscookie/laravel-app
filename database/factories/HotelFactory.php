@@ -17,7 +17,15 @@ class HotelFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "user_id" => auth()->user()->id,
+            "name" => "Taj Gateway",
+            "total_rooms" => 300,
+            "available_rooms" => 300,
+            "country_id" => 1,
+            "state_id" => 1,
+            "city_id" => 1,
+            "location" => fake()->address(),
+            "postcode" => fake()->postcode()
         ];
     }
 }
