@@ -11,7 +11,7 @@ class HotelRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,28 @@ class HotelRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'name' => 'required|string|max:150',
+                    'total_rooms' => 'numeric',
+                    'available_rooms' => 'numeric',
+                    'country_id' => 'numeric',
+                    'state_id' => 'numeric',
+                    'city_id' => 'numeric',
+                    'location' => 'required|string|max:255',
+                    'postcode' => 'required|string|max:15'
+                ];
+            case 'PUT':
+            case 'PATCH':
+                return [
+                    'name' => 'required|string|max:150',
+                    'total_rooms' => 'numeric',
+                    'available_rooms' => 'numeric',
+                    'location' => 'required|string|max:255',
+                    'postcode' => 'required|string|max:15'
+                ];
+            default:break;
+        }
     }
 }
