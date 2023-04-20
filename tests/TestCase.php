@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use App\Models\Hotel;
 use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Laravel\Sanctum\Sanctum;
@@ -33,10 +32,5 @@ abstract class TestCase extends BaseTestCase
         );
 
         return $user;
-    }
-
-    public function createHotel()
-    {
-       return Hotel::factory()->create();
     }
 }
