@@ -12,6 +12,8 @@ class HotelTest extends TestCase
     use RefreshDatabase;
 
     private $user;
+    
+    private $hotel;
 
     public function setUp(): void
     {
@@ -20,6 +22,8 @@ class HotelTest extends TestCase
         $this->user = $this->createUser();
 
         $this->authUser();
+
+        $this->hotel = $this->createHotel();
     }
     
     public function test_fetch_all_hotels(): void
