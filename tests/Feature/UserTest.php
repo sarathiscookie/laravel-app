@@ -3,12 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Database\Seeders\CitySeeder;
-use Database\Seeders\CountrySeeder;
-use Database\Seeders\RoleSeeder;
-use Database\Seeders\StateSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class UserTest extends TestCase
