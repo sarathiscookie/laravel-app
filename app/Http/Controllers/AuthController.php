@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,18 +12,13 @@ class AuthController extends Controller
     /**
      * Handle a login request for the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\AuthRequest  $request
      */
-    public function login(Request $request)
+    public function login(AuthRequest $request)
     {
-        $fields = $request->validate([
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string']
-        ]);
+        $user = User::firstWhere('email', $request->email);
 
-        $user = User::firstWhere('email', $fields['email']);
-
-        if (!$user || !Hash::check($fields['password'], $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'Credentials not match.'
             ], Response::HTTP_UNAUTHORIZED);
@@ -39,10 +34,8 @@ class AuthController extends Controller
 
     /**
      * Handle a logout request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
      */
-    public function logout(Request $request)
+    public function logout()
     {
         auth()->user()->tokens()->delete();
 
