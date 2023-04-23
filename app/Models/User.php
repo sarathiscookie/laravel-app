@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
@@ -52,6 +51,16 @@ class User extends Authenticatable
         self::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });
+    }
+
+    /**
+     * Get the user's name.
+     */
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => ucwords($value),
+        );
     }
 
     /**
