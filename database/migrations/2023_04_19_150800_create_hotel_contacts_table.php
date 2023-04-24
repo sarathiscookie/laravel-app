@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('hotel_id')->constrained();
             $table->string('email')->unique();
-            $table->string('contact_number', 25);
+            $table->binary('phone');
             $table->enum('status', [StatusEnum::ACTIVE->value, StatusEnum::DISABLED->value])->default(StatusEnum::ACTIVE->value);
             $table->timestamps();
         });

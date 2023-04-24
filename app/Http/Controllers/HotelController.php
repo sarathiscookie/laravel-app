@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\HotelRequest;
 use App\Models\Hotel;
-use Illuminate\Http\Request;
+use App\Services\HotelContactService;
 use Symfony\Component\HttpFoundation\Response;
 
 class HotelController extends Controller
 {
+    public function __construct(protected HotelContactService $hotelContact)
+    {}
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +18,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels = Hotel::get(['name', 'user_id', 'total_rooms', 'available_rooms', 'country_id', 'state_id', 'city_id', 'location', 'postcode', 'status']);
+        $hotels = Hotel::with('hotelContacts')->get();
 
         return response()->json($hotels, Response::HTTP_OK);
     }
@@ -28,6 +30,10 @@ class HotelController extends Controller
      */
     public function store(HotelRequest $request)
     {
+        //TODO: Create service to store hotel.
+        //TODO: Add try catch error handling.
+        //TODO: Add unit test for hotel contacts.
+
         $hotel = new Hotel;
         $hotel->user_id = auth()->user()->id;
         $hotel->name = $request->name;
@@ -39,10 +45,17 @@ class HotelController extends Controller
         $hotel->location = $request->location;
         $hotel->postcode = $request->postcode;
         $hotel->save();
-        
+
+        foreach ($request->contacts as $contact) {
+            $this->hotelContact->store([
+                'hotel_id' => $hotel->id,
+                'email' => $contact['email'],
+                'phone' => $contact['phone']
+            ]);
+        }
+
         return response()->json([
             'message' => 'Hotel created successfully!',
-            'hotel' => $hotel
         ], Response::HTTP_CREATED);
     }
 
