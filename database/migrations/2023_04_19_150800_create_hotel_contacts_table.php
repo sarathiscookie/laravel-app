@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('hotel_contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hotel_id')->constrained();
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
             $table->string('email')->unique();
             $table->binary('phone');
             $table->enum('status', [StatusEnum::ACTIVE->value, StatusEnum::DISABLED->value])->default(StatusEnum::ACTIVE->value);
