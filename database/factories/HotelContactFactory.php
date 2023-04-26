@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Hotel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class HotelContactFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'hotel_id' => function () {
+                return Hotel::factory()->create()->id;
+            },
+            'email' => fake()->email(),
+            'phone' => fake()->phoneNumber()
         ];
     }
 }

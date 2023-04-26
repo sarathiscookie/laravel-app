@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HotelContactController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -17,16 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route for login
-
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'login'])->name('login');
 
 // Route groups
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResources([
-        '/users' => UserController::class,
-        '/hotels' => HotelController::class
+        'users' => UserController::class,
+        'hotels' => HotelController::class
     ]);
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::apiResource('hotels.contacts', HotelContactController::class)->except('show')
+    ->shallow();
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
