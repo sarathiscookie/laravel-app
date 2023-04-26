@@ -22,7 +22,10 @@ class HotelContactFactory extends Factory
                 return Hotel::factory()->create()->id;
             },
             'email' => fake()->email(),
-            'phone' => fake()->phoneNumber()
+            'phone' => [
+                fake()->phoneNumber(),
+                fake()->phoneNumber()
+            ]
         ];
     }
 }

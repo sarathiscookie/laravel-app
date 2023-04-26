@@ -56,7 +56,12 @@ class HotelContactTest extends TestCase
     public function test_update_a_contact(): void
     {
         $this->patchJson(route('contacts.update', $this->hotelContact->id), [
-            //
+            'hotel_id' => $this->hotel->id,
+            'email' => 'test@test.test',
+            'phone' => [
+                0000000000,
+                0000000001
+            ]
         ])
             ->assertOk();
     }
