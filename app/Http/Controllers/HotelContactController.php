@@ -16,7 +16,7 @@ class HotelContactController extends Controller
      */
     public function index(Hotel $hotel)
     {
-        $hotelContacts = HotelContact::where(['hotel_id' => $hotel->id])->get();
+        $hotelContacts = $hotel->hotelContacts;
 
         return response()->json($hotelContacts, Response::HTTP_OK);
     }
@@ -28,9 +28,7 @@ class HotelContactController extends Controller
      */
     public function store(Request $request, Hotel $hotel)
     {
-        $request['hotel_id'] = $hotel->id;
-
-        $hotelContacts = HotelContact::create($request->all());
+        $hotelContacts = $hotel->hotelContacts()->create($request->all());
 
         return response()->json([
             'message' => 'Contacts created successfully!',
