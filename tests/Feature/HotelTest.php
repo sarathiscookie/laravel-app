@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Hotel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HotelTest extends TestCase
@@ -52,16 +51,16 @@ class HotelTest extends TestCase
                     'hotel_id' => $hotel->id,
                     'email' => 't@tajisland.com',
                     'phone' => [
-                        1111111111,
-                        2222222222
+                        "1111111111",
+                        "2222222222"
                     ]
                 ],
                 [
                     'hotel_id' => $hotel->id,
                     'email' => 's@tajisland.com',
                     'phone' => [
-                        3333333333,
-                        4444444444
+                        "3333333333",
+                        "4444444444"
                     ]
                 ]
             ]
