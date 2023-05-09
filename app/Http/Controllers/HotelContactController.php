@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use App\Models\HotelContact;
+use App\Services\HotelContactService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -46,12 +47,16 @@ class HotelContactController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \App\Models\HotelContact  $hotelContact
      */
-    public function update(Request $request, HotelContact $hotelContact)
+    public function update(Request $request, $id)
     {
-        $hotelContact->fill($request->post())->save();
+        $hotelContact = HotelContact::find($id);
+
+        $hotelContact->email = $request->email;
+        $phone = $hotelContact->phone;
+        $phone['key'] = $request->phone;
+        $hotelContact->phone = $phone;
+        $hotelContact->save();
 
         return response()->json([
             'message' => 'Contacts updated successfully',
