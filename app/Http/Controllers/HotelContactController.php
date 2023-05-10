@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HotelContactController extends Controller
 {
+    public function __construct(protected HotelContactService $hotelContactService)
+    {}
+
     /**
      * Display a listing of the resource.
      *
@@ -47,16 +50,17 @@ class HotelContactController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param int  $id
      */
     public function update(Request $request, $id)
     {
-        $hotelContact = HotelContact::find($id);
+        $hotelContact = $this->hotelContactService->find($id);
 
-        $hotelContact->email = $request->email;
-        $phone = $hotelContact->phone;
-        $phone['key'] = $request->phone;
-        $hotelContact->phone = $phone;
-        $hotelContact->save();
+        $hotelContact->update([
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
 
         return response()->json([
             'message' => 'Contacts updated successfully',

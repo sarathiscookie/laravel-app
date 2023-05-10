@@ -10,4 +10,9 @@ class HotelContactService
     {
         return HotelContact::create($contacts);
     }
+
+    public function find(int $id): HotelContact
+    {
+        return HotelContact::find($id);
+    }
 }
