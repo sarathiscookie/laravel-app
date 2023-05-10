@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\HotelContactRequest;
 use App\Http\Requests\HotelRequest;
 use App\Models\Hotel;
 use App\Services\HotelContactService;
@@ -29,8 +30,9 @@ class HotelController extends Controller
      * Store a newly created resource in hotel and hotel contacts storage.
      *
      * @param  \App\Http\Requests\HotelRequest  $request
+     * @param  \App\Http\Requests\HotelContactRequest  $contactRequest
      */
-    public function store(HotelRequest $request)
+    public function store(HotelRequest $request, HotelContactRequest $contactRequest)
     {
         $hotel = $this->hotelService->store([
             'user_id' => auth()->user()->id,
