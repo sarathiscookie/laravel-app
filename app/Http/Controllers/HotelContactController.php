@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
-use App\Models\HotelContact;
 use App\Services\HotelContactService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,11 +70,11 @@ class HotelContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\HotelContact  $hotelContact
+     * @param  int  $id
      */
-    public function destroy(HotelContact $hotelContact)
+    public function destroy($id)
     {
-        $hotelContact->delete();
+        $this->hotelContactService->delete($id);
 
         return response()->json([
             'message' => 'Contacts deleted successfully!'

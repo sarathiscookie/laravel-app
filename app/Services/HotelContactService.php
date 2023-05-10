@@ -15,4 +15,9 @@ class HotelContactService
     {
         return HotelContact::find($id);
     }
+
+    public function delete(int $id)
+    {
+        return HotelContact::destroy($id);
+    }
 }
