@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\Hotel;
 use App\Services\HotelContactService;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class HotelContactController extends Controller
@@ -27,9 +27,10 @@ class HotelContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param  \App\Http\Requests\ContactRequest  $request
      * @param  \App\Models\Hotel  $hotel
      */
-    public function store(Request $request, Hotel $hotel)
+    public function store(ContactRequest $request, Hotel $hotel)
     {
         $hotelContacts = $hotel->hotelContacts()->create($request->all());
 
@@ -50,9 +51,10 @@ class HotelContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * @param  \App\Http\Requests\ContactRequest  $request
      * @param int  $id
      */
-    public function update(Request $request, $id)
+    public function update(ContactRequest $request, $id)
     {
         $hotelContact = $this->hotelContactService->find($id);
 
