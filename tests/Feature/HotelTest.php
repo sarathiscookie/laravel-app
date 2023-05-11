@@ -98,5 +98,9 @@ class HotelTest extends TestCase
         $this->assertDatabaseMissing('hotels', [
             'id' => $this->hotel->id
         ]);
+
+        $this->assertDatabaseMissing('hotel_contacts', [
+            'hotel_id' => $this->hotel->id
+        ]);
     }
 }
