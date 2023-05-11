@@ -32,8 +32,7 @@ class HotelContactTest extends TestCase
 
         $response->assertOk();
 
-        //$this->assertEquals(1, count($response->json()));
-        //$this->assertEquals($response->json()['hotel_id'], $this->hotel->id);
+        $this->assertEquals(1, count($response->json()));
     }
 
     public function test_store_a_contact_for_a_hotel(): void
