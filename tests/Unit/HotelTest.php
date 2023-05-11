@@ -17,7 +17,7 @@ class HotelTest extends TestCase
         
         $hotel = $this->createHotel();
 
-        $hotelContact = $this->createHotelContact(['hotel_id' => $hotel->id]);
+        $this->createHotelContact(['hotel_id' => $hotel->id]);
 
         $this->assertInstanceOf(Collection::class, $hotel->hotelContacts);
 
