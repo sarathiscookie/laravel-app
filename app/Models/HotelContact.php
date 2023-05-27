@@ -27,7 +27,7 @@ class HotelContact extends Model
     ];
 
     /**
-     * Get the user that owns the hotel.
+     * Get the hotel related to contact.
      */
     public function hotel(): BelongsTo
     {

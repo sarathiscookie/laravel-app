@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Models\Hotel;
 use App\Models\HotelContact;
+use App\Models\RoomType;
 use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Laravel\Sanctum\Sanctum;
@@ -44,5 +45,10 @@ abstract class TestCase extends BaseTestCase
     public function createHotelContact($args = [])
     {
         return HotelContact::factory()->create($args);
+    }
+
+    public function createRoomType($args = [])
+    {
+        return RoomType::factory()->create($args);
     }
 }
