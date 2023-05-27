@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoomTypeRequest;
 use App\Models\Hotel;
 use App\Services\RoomTypeService;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class RoomTypeController extends Controller
@@ -27,7 +27,7 @@ class RoomTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Hotel $hotel)
+    public function store(RoomTypeRequest $request, Hotel $hotel)
     {
         $roomType = $hotel->roomTypes()->create($request->all());
 
@@ -40,7 +40,7 @@ class RoomTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RoomTypeRequest $request, string $id)
     {
         $roomType = $this->roomTypeService->find($id);
 
