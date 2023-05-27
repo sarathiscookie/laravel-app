@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HotelContactController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResource('hotels.contacts', HotelContactController::class)->except('show')
     ->shallow();
+
+    Route::apiResource('hotels.roomtypes', RoomTypeController::class)->shallow();
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -57,4 +57,12 @@ class Hotel extends Model
     {
         return $this->hasMany(HotelContact::class);
     }
+
+    /**
+     * Get the room type for the hotel.
+     */
+    public function roomTypes(): HasMany
+    {
+        return $this->hasMany(RoomType::class);
+    }
 }
